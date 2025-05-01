@@ -1,0 +1,104 @@
+@import "./reset";
+@font-face {
+  font-family: "FiraGo";
+  src: url("./font/FiraGO-Regular.otf") format("opentype");
+}
+@import "./variables";
+@import "./mixins";
+
+body {
+  font-family: "FiraGo", sans-serif;
+  background-color: $background-grey;
+}
+
+/* საერთო გამოყენების კლასები
+
+*  .container – თქვენ კლასთან ერთად ამასაც დაადებთ. + Responsive
+* .card-shadow – მესამე სექციის ქარდებისთვის.
+* text style- ები  */
+
+//Font Size  @extend %სახელი - ით გამოვიძახებთ
+
+%headline1 {
+  font-size: 24px;
+  line-height: 40px;
+  font-weight: 600;
+  letter-spacing: 0.35px;
+}
+
+%headline2 {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 600;
+  letter-spacing: 0.35px;
+}
+
+%body-text {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+}
+
+%header-text {
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 400;
+  letter-spacing: -0.24px;
+}
+
+%headline3 {
+  font-size: 13px;
+  line-height: 18px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+}
+
+%small-text {
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 400;
+  letter-spacing: 0.2px;
+}
+
+// ყველა სექციისთვის ერთი და იგივე კლასი
+
+.container {
+  max-width: 1312px;
+  width: 100%;
+  margin: auto;
+}
+
+//მესამე სექციის ქარდებისთვის ეს კლასი გამოიყენე - Drop shadow
+
+.card-shadow {
+  background-color: rgba(0, 0, 0, 0.12);
+  backdrop-filter: blur(40px);
+}
+
+// ეს ჩემთვის ჰედერში - Drop shadow
+
+.header-shadow {
+  background-color: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(20px);
+}
+
+//responsive
+
+@media screen and (max-width: 1240px) {
+  .container {
+    max-width: 1128px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .container {
+    max-width: 928px;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .container {
+    max-width: 328px;
+  }
+}
