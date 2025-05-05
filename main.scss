@@ -72,8 +72,7 @@ body {
 //მესამე სექციის ქარდებისთვის ეს კლასი გამოიყენე - Drop shadow
 
 .card-shadow {
-  background-color: rgba(0, 0, 0, 0.12);
-  backdrop-filter: blur(40px);
+  box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.1);
 }
 
 // ეს ჩემთვის ჰედერში - Drop shadow
@@ -101,4 +100,44 @@ body {
   .container {
     max-width: 328px;
   }
+}
+
+////////////////////////////////////////Section 3///////////////////////////////////////////////
+
+.section-3 {
+  height: 519px;
+  margin-top: 64px;
+  @include flex;
+  gap: 32px;
+}
+
+.left,
+.right {
+  @include flex;
+  flex-direction: column;
+  height: 100%;
+  gap: 31px;
+}
+
+a {
+  text-decoration: none;
+  color: $text-color;
+}
+
+.card-1,
+.card-2,
+.card-3,
+.card-4,
+.card-5 {
+  background-color: $white;
+  border-radius: 12px;
+  @include flex;
+  flex-direction: column;
+}
+
+.img-container {
+  border-radius: 12px;
+
+  width: 100%;
+  height: 100%;
 }
