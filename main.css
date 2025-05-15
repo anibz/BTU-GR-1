@@ -144,11 +144,32 @@ body {
 *  .container – თქვენ კლასთან ერთად ამასაც დაადებთ. + Responsive
 * .card-shadow – მესამე სექციის ქარდებისთვის.
 * text style- ები  */
+.swiper .swiper-wrapper .swiper-slide .info .info-content .slider-text {
+  font-size: 24px;
+  line-height: 40px;
+  font-weight: 600;
+  letter-spacing: 0.35px;
+}
+
+.swiper .swiper-buttons {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 600;
+  letter-spacing: 0.35px;
+}
+
 header .header-bottom .header-bottom-nav, header .header-top .header-top-search-burger h4 {
   font-size: 16px;
   line-height: 20px;
   font-weight: 400;
   letter-spacing: -0.24px;
+}
+
+.swiper .swiper-wrapper .swiper-slide .info .info-content .article-label span, .swiper .swiper-wrapper .swiper-slide .info .info-content .article-label {
+  font-size: 13px;
+  line-height: 18px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
 }
 
 .container {
@@ -273,9 +294,119 @@ header .header-bottom .header-bottom-nav .header-bottom-list .more-dropdown:hove
   transform: translateY(16px);
 }
 
+.swiper {
+  position: relative;
+  max-height: 760px;
+  margin: auto;
+  margin-top: 48px;
+}
+.swiper .swiper-wrapper .swiper-slide {
+  position: relative;
+}
+.swiper .swiper-wrapper .swiper-slide .swiper-image-container img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.swiper .swiper-wrapper .swiper-slide .info {
+  padding: 29px 24px 0 24px;
+  transform: none;
+  position: absolute;
+  left: 24px;
+  bottom: 24px;
+  background-color: white;
+  width: 600px;
+  height: 280px;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+.swiper .swiper-wrapper .swiper-slide .info .info-content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  height: 150px;
+}
+.swiper .swiper-wrapper .swiper-slide .info .info-content .article-label {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 5px;
+}
+.swiper .swiper-wrapper .swiper-slide .info .info-content .article-label .topic {
+  color: #ff3b30;
+  font-weight: 600;
+}
+.swiper .swiper-wrapper .swiper-slide .info .info-content .article-label .date {
+  font-weight: 400;
+  color: #4a5468;
+}
+.swiper .swiper-buttons {
+  position: absolute;
+  bottom: 53px;
+  left: calc(1.8292682927% + 24px);
+  width: 113px;
+  height: 40px;
+  border-radius: 8px;
+  padding: 0px 8px;
+  background-color: #edf0f7;
+  display: flex !important;
+  flex-direction: row;
+  justify-content: space-between !important;
+  align-items: center !important;
+  z-index: 2;
+}
+.swiper .swiper-buttons .swiper-button-prev,
+.swiper .swiper-buttons .swiper-button-next {
+  position: static;
+  margin: 0;
+  display: flex;
+  background-color: #edf0f7;
+  width: 24px;
+  height: 24px;
+  border-radius: 8px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.swiper .swiper-buttons .swiper-button-prev img,
+.swiper .swiper-buttons .swiper-button-next img {
+  width: 14px;
+  height: 10px;
+}
+.swiper .swiper-buttons .swiper-button-next {
+  transform: scaleX(-1);
+}
+.swiper .swiper-buttons .swiper-button-prev::after,
+.swiper .swiper-buttons .swiper-button-next::after {
+  display: none;
+}
+
 @media screen and (max-width: 1240px) {
   .container {
     max-width: 1128px;
+  }
+  .swiper {
+    max-width: 1128px;
+    max-height: 700px;
+    margin: auto;
+    margin-top: 32px;
+  }
+  .swiper .swiper-wrapper .swiper-slide .info {
+    position: absolute;
+    width: 95.7446808511%;
+    height: 246px;
+    padding-top: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .swiper .swiper-wrapper .swiper-slide .info .large-screen-only {
+    display: none;
+  }
+  .swiper .swiper-buttons {
+    left: calc(2.1276595745% + 24px);
+    bottom: 32px;
   }
 }
 @media screen and (max-width: 1024px) {
@@ -325,6 +456,26 @@ header .header-bottom .header-bottom-nav .header-bottom-list .more-dropdown:hove
   header .header-bottom {
     display: none;
   }
+  .swiper {
+    max-width: 928px;
+    min-height: 560px;
+    margin: auto;
+    margin-top: 16px;
+  }
+  .swiper .swiper-wrapper .swiper-slide .info {
+    position: absolute;
+    width: 94.8275862069%;
+    height: 158px;
+    min-height: 158px;
+    padding: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .swiper .swiper-buttons {
+    left: 2.5917926566%;
+    top: 24px;
+    background-color: #ffffff;
+  }
 }
 @media screen and (max-width: 360px) {
   .container {
@@ -348,5 +499,46 @@ header .header-bottom .header-bottom-nav .header-bottom-list .more-dropdown:hove
   }
   header .header-top .header-top-search-burger .burger-menu-list {
     padding-left: 50px !important;
+  }
+  .swiper {
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+  }
+  .swiper .swiper-wrapper .swiper-slide {
+    border-radius: none;
+  }
+  .swiper .swiper-wrapper .swiper-slide .info {
+    position: static;
+    left: auto;
+    transform: none;
+    padding: 16px;
+    width: 100%;
+    height: auto;
+  }
+  .swiper .swiper-wrapper .swiper-slide .info .info-content {
+    max-width: 328px;
+    gap: 8px;
+    min-height: 122px;
+  }
+  .swiper .swiper-wrapper .swiper-slide .info .info-content .slider-text {
+    font-size: 16px;
+    line-height: 24px;
+  }
+  .swiper .swiper-buttons {
+    width: 91.1111111111%;
+    height: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: transparent;
+  }
+  .swiper .swiper-buttons div {
+    background-color: #ffffff;
+    width: 32px;
+    height: 32px;
+  }
+  .swiper .swiper-buttons .slider-count {
+    display: none;
   }
 }/*# sourceMappingURL=main.css.map */
