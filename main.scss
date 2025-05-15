@@ -215,11 +215,133 @@ header {
   }
 }
 
+
+.swiper {
+  position: relative;
+  max-height: 760px;
+  margin: auto;
+
+  .swiper-wrapper {
+    .swiper-slide {
+      position: relative;
+      .swiper-image-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .info {
+        padding: 29px 24px 0 24px;
+        transform: none;
+        position: absolute;
+        left: 24px;
+        bottom: 24px;
+        background-color: white;
+        width: 600px;
+        height: 280px;
+        border-radius: 10px;
+        .info-content {
+          display: flex;
+          flex-direction: column;
+          gap: 12px;
+          height: 150px;
+          .article-label {
+            @extend %headline3;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 5px;
+            span {
+              @extend %headline3;
+            }
+            .topic {
+              color: $red;
+              font-weight: 600;
+            }
+            .date {
+              font-weight: 400;
+              color: $dark-grey;
+            }
+          }
+          .slider-text {
+            @extend %headline1;
+          }
+        }
+      }
+    }
+  }
+
+  .swiper-buttons {
+    position: absolute;
+    bottom: 53px;
+    left: calc(24 / 1312 * 100% + 24px);
+    width: 113px;
+    height: 40px;
+    border-radius: 8px;
+    padding: 0px 8px;
+    background-color: $light-grey;
+    display: flex !important;
+    flex-direction: row;
+    justify-content: space-between !important;
+    align-items: center !important;
+    z-index: 2;
+    @extend %headline2;
+    .swiper-button-prev,
+    .swiper-button-next {
+      position: static;
+      margin: 0;
+      display: flex;
+      background-color: $light-grey;
+      width: 24px;
+      height: 24px;
+      border-radius: 8px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      img {
+        width: 14px;
+        height: 10px;
+      }
+    }
+    .swiper-button-next {
+      transform: scaleX(-1);
+    }
+    .swiper-button-prev::after,
+    .swiper-button-next::after {
+      display: none;
+    }
+  }
+}
+
 //responsive
 
 @media screen and (max-width: 1240px) {
   .container {
     max-width: 1128px;
+  }
+  .swiper {
+    max-width: 1128px;
+    max-height: 700px;
+    margin: auto;
+    .swiper-wrapper {
+      .swiper-slide {
+        .info {
+          position: absolute;
+          width: calc(1080 / 1128 * 100%);
+          height: 246px;
+          padding-top: 32px;
+          left: 50%;
+          transform: translateX(-50%);
+          .large-screen-only {
+            display: none;
+          }
+        }
+      }
+    }
+    .swiper-buttons {
+      left: calc(24 / 1128 * 100% + 24px);
+      bottom: 32px;
+    }
   }
 }
 
@@ -284,6 +406,30 @@ header {
       display: none;
     }
   }
+
+  .swiper {
+    max-width: 928px;
+    min-height: 560px;
+    margin: auto;
+    .swiper-wrapper {
+      .swiper-slide {
+        .info {
+          position: absolute;
+          width: calc(880 / 928 * 100%);
+          height: 158px;
+          min-height: 158px;
+          padding: 24px;
+          left: 50%;
+          transform: translateX(-50%);
+        }
+      }
+    }
+    .swiper-buttons {
+      left: calc(24 / 926 * 100%);
+      top: 24px;
+      background-color: $white;
+    }
+  }
 }
 
 @media screen and (max-width: 360px) {
@@ -313,6 +459,50 @@ header {
         .burger-menu-list {
           padding-left: 50px !important;
         }
+      }
+    }
+  }
+
+  .swiper {
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    .swiper-wrapper {
+      .swiper-slide {
+        border-radius: none;
+        .info {
+          position: static;
+          left: auto;
+          transform: none;
+          padding: 16px;
+          width: 100%;
+          height: auto;
+          .info-content {
+            max-width: 328px;
+            gap: 8px;
+            min-height: 122px;
+            .slider-text {
+              font-size: 16px;
+              line-height: 24px;
+            }
+          }
+        }
+      }
+    }
+    .swiper-buttons {
+      width: calc(328 / 360 * 100%);
+      height: 32px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: transparent;
+      div {
+        background-color: $white;
+        width: 32px;
+        height: 32px;
+      }
+      .slider-count {
+        display: none;
       }
     }
   }
