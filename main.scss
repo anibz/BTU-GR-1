@@ -50,7 +50,7 @@ body {
 %headline3 {
   font-size: 13px;
   line-height: 18px;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 0.2px;
 }
 
@@ -315,12 +315,115 @@ header {
   }
 }
 
+//third section
+
+.cards-container {
+  display: grid;
+  grid-template-areas:
+    "card1 big-card card2"
+    "card3 big-card card4";
+  // grid-template-columns: 1fr 1.5fr 1fr;
+  grid-template-columns: 304px 1fr 304px;
+  gap: 32px;
+  padding: 20px;
+  margin-top: 64px;
+
+  .card1 {
+    grid-area: card1;
+  }
+
+  .card2 {
+    grid-area: card2;
+  }
+
+  .card3 {
+    grid-area: card3;
+  }
+  .card4 {
+    grid-area: card4;
+  }
+  .big-card {
+    grid-area: big-card;
+
+    img {
+      width: 100%;
+      max-height: 356px;
+    }
+
+    .big-card-info {
+      .big-card-p {
+        padding: 32px 16px;
+        @extend %headline2;
+      }
+    }
+
+    .big-card-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px;
+      border-top: 1px solid $light-grey;
+
+      .text-red {
+        color: $primary-color;
+        @extend %headline3;
+      }
+
+      .text-date {
+        color: $dark-grey;
+        @extend %small-text;
+      }
+    }
+  }
+
+  .card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      display: block;
+      height: auto;
+    }
+
+    .card-info {
+      padding: 16px 12px;
+
+      h3 {
+        @extend %small-text;
+        color: $dark-grey;
+        display: block;
+        margin-bottom: 8px;
+      }
+
+      p {
+        @extend %headline3;
+        color: $text-color;
+      }
+    }
+  }
+}
+
 //responsive
 
 @media screen and (max-width: 1240px) {
   .container {
     max-width: 1128px;
   }
+
+  .cards-container {
+    grid-template-columns: 264px 1fr 264px;
+
+    .big-card {
+      img {
+        max-height: 356px;
+        // height: 100%;
+      }
+    }
+  }
+
   .swiper {
     max-width: 1128px;
     max-height: 700px;
@@ -436,6 +539,14 @@ header {
       background-color: $white;
     }
   }
+
+  .cards-container {
+    grid-template-areas:
+      "big-card big-card"
+      "card1 card2"
+      "card3 card4";
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 @media screen and (max-width: 360px) {
@@ -469,9 +580,13 @@ header {
     }
   }
 
+  .cards-container {
+    margin-top: 48px;
+  }
+
   .swiper {
     width: 100%;
-    height: auto;
+    min-height: auto;
     margin: 0;
     padding: 0;
     .swiper-wrapper {
@@ -511,5 +626,15 @@ header {
         display: none;
       }
     }
+  }
+
+  .cards-container {
+    grid-template-areas:
+      "big-card"
+      "card1"
+      "card2"
+      "card3"
+      "card4";
+    grid-template-columns: 1fr;
   }
 }
